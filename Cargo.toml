@@ -3,4 +3,8 @@ name = "rust_fibonacci"
 version = "0.1.0"
 authors = ["Vagelis Prokopiou <vagelis.prokopiou@gmail.com>"]
 
+[lib]
+name = "fibonacci"
+path = "src/lib.rs"
+
 [dependencies]
