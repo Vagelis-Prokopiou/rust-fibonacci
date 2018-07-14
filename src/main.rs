@@ -1,24 +1,36 @@
-pub fn fibonacci(n: &i64) -> i64 {
-    if *n == 1 || *n == 2 {
-        return 1;
-    }
+use std::collections::HashMap;
 
-    return fibonacci(&(*n - 1)) + fibonacci(&(*n - 2));
-}
+mod helpers;
 
 fn main() {
-    println!("{}", fibonacci(&5));
+    let mut hash_map: HashMap<i32, i32> = HashMap::new();
+    let mut array: [i32; 47] = [0; 47];
+
+    println!("{}", helpers::fibonacci_with_hashmap_memoization(46, &mut hash_map));
+    println!("{}", helpers::fibonacci_with_array_memoization(46, &mut array));
 }
 
 #[cfg(test)]
 mod tests {
-    use super::fibonacci;
+    use super::*;
 
     #[test]
-    fn wordks() {
-        assert_eq!(fibonacci(&3), 2);
-        assert_eq!(fibonacci(&5), 5);
-        assert_eq!(fibonacci(&23), 28657);
-        assert_eq!(fibonacci(&29), 514229);
+    fn test_fibonacci_with_hashmap_memoization() {
+        let mut hash_map: HashMap<i32, i32> = HashMap::new();
+
+        assert_eq!(helpers::fibonacci_with_hashmap_memoization(3, &mut hash_map), 2);
+        assert_eq!(helpers::fibonacci_with_hashmap_memoization(5, &mut hash_map), 5);
+        assert_eq!(helpers::fibonacci_with_hashmap_memoization(23, &mut hash_map), 28657);
+        assert_eq!(helpers::fibonacci_with_hashmap_memoization(29, &mut hash_map), 514229);
+    }
+
+    #[test]
+    fn test_fibonacci_with_array_memoization() {
+        let mut array: [i32; 47] = [0; 47];
+
+        assert_eq!(helpers::fibonacci_with_array_memoization(3, &mut array), 2);
+        assert_eq!(helpers::fibonacci_with_array_memoization(5, &mut array), 5);
+        assert_eq!(helpers::fibonacci_with_array_memoization(23, &mut array), 28657);
+        assert_eq!(helpers::fibonacci_with_array_memoization(29, &mut array), 514229);
     }
 }
