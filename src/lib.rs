@@ -4,14 +4,13 @@ pub fn fibonacci_with_hashmap_memoization(n: i64, cache: &mut HashMap<i64, i64>)
     assert!(n > 0, true);
 
     if cache.contains_key(&n) {
-        let b: &i64 = cache.get(&n).unwrap();
-        return *b;
+        let result: &i64 = cache.get(&n).unwrap();
+        return *result;
     }
 
     if n == 1 || n == 2 {
         return 1;
     }
-
 
     let result: i64 = fibonacci_with_hashmap_memoization(n - 1, cache) + fibonacci_with_hashmap_memoization(n - 2, cache);
 
