@@ -23,11 +23,11 @@ fn test_fibonacci_with_array_memoization() {
 }
 
 #[test]
-fn test_fibonacci_with_array_memoization_iterative() {
-    assert_eq!(fibonacci::fibonacci_with_array_memoization_iterative(2), 1);
-    assert_eq!(fibonacci::fibonacci_with_array_memoization_iterative(3), 2);
-    assert_eq!(fibonacci::fibonacci_with_array_memoization_iterative(5), 5);
-    assert_eq!(fibonacci::fibonacci_with_array_memoization_iterative(23), 28657);
-    assert_eq!(fibonacci::fibonacci_with_array_memoization_iterative(29), 514229);
-    assert_eq!(fibonacci::fibonacci_with_array_memoization_iterative(60), 1548008755920);
+fn test_fibonacci_iterative() {
+    assert_eq!(fibonacci::fibonacci_iterative(2), 1);
+    assert_eq!(fibonacci::fibonacci_iterative(3), 2);
+    assert_eq!(fibonacci::fibonacci_iterative(5), 5);
+    assert_eq!(fibonacci::fibonacci_iterative(23), 28657);
+    assert_eq!(fibonacci::fibonacci_iterative(29), 514229);
+    assert_eq!(fibonacci::fibonacci_iterative(60), 1548008755920);
 }

@@ -39,18 +39,19 @@ pub fn fibonacci_with_array_memoization(n: i64, cache: &mut [i64]) -> i64 {
     return result;
 }
 
-pub fn fibonacci_with_array_memoization_iterative(n: i64) -> i64 {
+pub fn fibonacci_iterative(n: i64) -> i64 {
     assert!(n > 0, true);
     if n == 1 || n == 2 { return 1; }
 
-    // Initialize the cache. Todo: Initialize without looping.
-    let mut cache: Vec<i64> = vec![0, 1, 1];
-    for i in 3..n + 1 { cache.push(0); }
+    let mut current: i64 = 0;
+    let mut previous: i64 = 1;
+    let mut previous2: i64 = 1;
 
-    for i in 3..n + 1 {
-        let index = i as usize;
-        cache[index] = cache[index - 1] + cache[index - 2];
+    for _i in 3..n + 1 {
+        current = previous + previous2;
+        previous2 = previous;
+        previous = current;
     }
-    
-    return cache[n as usize];
+
+    return current;
 }
